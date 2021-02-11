@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import {Layout}  from 'antd'; 
+import ContactMe from './components/contact-me';
+import './assets/main.css';
 
-function App() {
+const {  Content, Sider } = Layout;
+
+
+
+
+const App = ()=>  {
+  const [collapsed,setCollapsed] =  useState(false);
+  const onCollapse = (collapsed:boolean) => setCollapsed(collapsed);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  <Layout style={{ minHeight: '100vh' }}>
+
+      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} width={300} >
+        <ContactMe disabled={!collapsed}/>
+      </Sider>
+
+    <Layout className="site-layout">
+      <Content style={{ padding: '0 10px' }}>
+      
+        <div className="site-layout-content">Content</div>
+      </Content>
+    </Layout>
+  </Layout>
+);}
+
 
 export default App;
