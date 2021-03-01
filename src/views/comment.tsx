@@ -1,12 +1,20 @@
 import React from 'react';
 
-
-const Comment = ({descricion,css}:any)=>{
+interface IProps{
+    description: string | Array<any>,
+    css:string
+}
+const Comment = ({description,css}:IProps)=>{
     const cssProperti= `descripcion ${css}`;
     
     return (
         <>
-            <p className={cssProperti} >{descricion}</p>
+            {
+                typeof description === "object" 
+                    ?(<p className={cssProperti} > { description.map((f:any)=><span style={{display:"block"}}>{f.tag}  </span>)}</p>)
+                    :(<p className={cssProperti} >{description}</p>)
+            }
+           
         </>
     );
 }

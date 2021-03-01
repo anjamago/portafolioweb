@@ -4,3 +4,20 @@
     background: #fff;
   }
 
+.ant-list-bordered{
+  border: none  !important;
+}
+.ant-list-item-meta-title{
+  font-size: 18px;
+}
+
+.ant-list-header{
+  font-size: 26px;
+  font-weight:bold;
+  font-style: italic;
+}
+
+.ant-list-item-meta-description{
+  width: 45%;
+  font-size:16px;
+}
